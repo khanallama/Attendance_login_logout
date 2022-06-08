@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h3>{{user.email}} is login at  {{ date|date() }} </h3>
+
+<form method="POST" action="{{ url('hrverifylogin') }}">
+    <div class="mb-3">
+        <input type="hidden" class="form-control" name="date" id="date" value= "{{ encryptedDate }}" >
+    </div>
+    <div class="mb-3">
+        <input type="hidden" class="form-control" name="userid" id="userid" value="  {{user_id}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<p>
+    {{ date|date("m-d-Y") }}  {{user.id}}
+    Cheers!
+</p>
+
+{% endblock %}
+
+
+
+
